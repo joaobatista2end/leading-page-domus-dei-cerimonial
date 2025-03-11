@@ -1,0 +1,38 @@
+---
+interface Props {
+  name: string;
+  price: number;
+  description: string;
+  services: string[];
+}
+
+const { name, price, description, services } = Astro.props;
+
+const formattedPrice = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL'
+}).format(price);
+---
+
+<div class="bg-zinc-900 p-8 rounded-lg border border-zinc-800 hover:border-orange-300/30 transition-colors">
+  <h3 class="font-kanit text-2xl text-orange-300">{name}</h3>
+  <p class="font-poppins text-xl mt-2 text-white">{formattedPrice}</p>
+  
+  <p class="font-poppins text-sm text-zinc-400 mt-4">{description}</p>
+  
+  <ul class="mt-6 space-y-2">
+    {services.map(service => (
+      <li class="flex items-start gap-2 text-sm text-zinc-300">
+        <span class="text-orange-300 mt-1">•</span>
+        {service}
+      </li>
+    ))}
+  </ul>
+
+  <a 
+    href="" 
+    class="mt-8 block w-full text-center py-3 px-4 bg-orange-300/10 hover:bg-orange-300/20 text-orange-300 rounded-md transition-colors"
+  >
+    Saiba mais
+  </a>
+</div> 

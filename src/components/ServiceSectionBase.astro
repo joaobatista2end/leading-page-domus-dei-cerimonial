@@ -1,0 +1,19 @@
+---
+import PackagesSection from './PackagesSection.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="max-w-screen-lg mx-auto px-16 py-24">
+  <h2 class="font-kanit text-4xl text-orange-300 mb-12">{title}</h2>
+  
+  {title === "Pacotes" ? (
+    <PackagesSection />
+  ) : (
+    <p>Conteúdo da seção de serviços</p>
+  )}
+</div>

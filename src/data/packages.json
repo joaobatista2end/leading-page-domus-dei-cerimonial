@@ -1,0 +1,49 @@
+[
+    {
+      "name": "Pacote Essencial",
+      "price": 3500,
+      "description": "Ideal para casais que já organizaram boa parte do evento, mas precisam de uma equipe especializada no grande dia.",
+      "services": [
+        "Reunião de alinhamento pré-evento",
+        "Checklist final de fornecedores",
+        "Supervisão geral no dia do evento (até 6h)",
+        "Coordenação da cerimônia e recepção",
+        "Suporte a padrinhos, noivos e fornecedores",
+        "Cronograma do evento",
+        "Equipe com até 3 cerimonialistas"
+      ]
+    },
+    {
+      "name": "Pacote Clássico",
+      "price": 6500,
+      "description": "Perfeito para quem quer apoio antes e durante o evento, com acompanhamento de fornecedores e organização parcial.",
+      "services": [
+        "Tudo do Pacote Essencial",
+        "3 reuniões presenciais ou online",
+        "Indicação de fornecedores confiáveis",
+        "Auxílio no roteiro da cerimônia e recepção",
+        "Visita técnica ao local do evento",
+        "Checklist completo com prazos e lembretes",
+        "Organização de ensaio com padrinhos",
+        "Acompanhamento de montagem no dia"
+      ]
+    },
+    {
+      "name": "Pacote Premium",
+      "price": 10500,
+      "description": "Para quem deseja tranquilidade total. A Domus Dei cuida de tudo, do planejamento à execução.",
+      "services": [
+        "Tudo do Pacote Clássico",
+        "Assessoria completa do início ao fim",
+        "Acompanhamento em reuniões com fornecedores",
+        "Auxílio com orçamento e planilha financeira",
+        "Gestão de RSVP",
+        "Planejamento personalizado do cronograma completo",
+        "Cerimonial completo de casamento civil e religioso",
+        "Equipe com até 5 cerimonialistas",
+        "Plantão de dúvidas e suporte via WhatsApp",
+        "Brinde exclusivo para os noivos"
+      ]
+    }
+  ]
+  
