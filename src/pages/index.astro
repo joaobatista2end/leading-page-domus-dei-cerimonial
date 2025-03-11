@@ -1,85 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Banner from "../components/Banner.astro";
+import MainBanner from "../components/MainBanner.astro";
+import SecondBanner from "../components/SecondBanner.astro";
+import ThirdBanner from "../components/ThirdBanner.astro";
 ---
 
 <Layout title="Domus Dei - Cerimonial">
-  <div class="max-w-screen-lg mx-auto">
-    <div
-      class="relative px-16 aspect-video bg-cover bg-center flex items-center"
-      style={`background-image: url(images/background_1.jpg)`}
-    >
-      <div class="relative z-10 text-white">
-        <h1 class="font-kanit leading-10 max-w-2xl text-5xl font-medium text-orange-300">
-          Seu sonho <br /> merece mais <br /> do que improviso. <br /> Ele merece
-          direção!
-        </h1>
-        <p class="font-poppins font-thin text-sm max-w-[350px] mt-4">
-          Na Domus Dei, cada evento é planejado com dedicação, propósito e muito
-          amor. Cuidamos dos mínimos detalhes para que você viva o momento com
-          leveza, sem preocupações.
-        </p>
-
-        <p class="max-w-[320px] font-poppins mt-4 text-sm">
-          <a href="" class="text-orange-300 underline">Agende uma consultoria</a> e dê o primeiro passo para um dia
-          inesquecível.
-        </p>
-      </div>
-
-      <div
-        class="absolute bottom-0 z-0 left-0 w-full h-full bg-linear-to-r from-black/80 to-black/30"
-      >
-      </div>
-    </div>
-  </div>
-
-  <div class="max-w-screen-lg mx-auto">
-    <div
-      class="relative px-16 aspect-video bg-cover bg-center flex items-center"
-      style={`background-image: url(images/background_3.jpg)`}
-    >
-      <div class="relative z-10 text-white">
-        <h1 class="font-kanit leading-10 max-w-2xl text-5xl font-medium text-orange-300">
-          Você vive o momento. <br /> Nós cuidamos do resto.
-        </h1>
-        <p class="font-poppins font-thin text-sm max-w-[350px] mt-4">
-          No grande dia, você não deveria se preocupar com cronogramas, fornecedores ou contratempos. Nossa equipe estará presente para garantir que tudo aconteça exatamente como você sonhou.
-        </p>
-
-        <p class="max-w-[320px] font-poppins mt-4 text-sm">
-          Garanta tranquilidade no seu evento. <br /> <a href="" class="text-orange-300 underline">Fale com nossa equipe agora.</a>
-        </p>
-      </div>
-
-      <div
-        class="absolute bottom-0 z-0 left-0 w-full h-full bg-linear-to-r from-black/80 to-black/30"
-      >
-      </div>
-    </div>
-  </div>
-
-  <div class="max-w-screen-lg mx-auto">
-    <div
-      class="relative px-16 aspect-video bg-cover bg-center flex items-center"
-      style={`background-image: url(images/background_2.jpg)`}
-    >
-      <div class="relative z-10 text-white">
-        <h1 class="font-kanit leading-10 max-w-2xl text-5xl font-medium text-orange-300">
-          Contratar um cerimonial é investir em paz, tempo e experiência.
-        </h1>
-        <p class="font-poppins font-thin text-sm max-w-[350px] mt-4">
-          Muitos acreditam que é possível organizar tudo sozinhos — até que o estresse aparece. Um cerimonial profissional evita imprevistos, negocia com fornecedores e transforma ideias em realidade. O resultado? Um evento que flui com leveza e elegância.
-        </p>
-
-        <p class="max-w-[320px] font-poppins mt-4 text-sm">
-          <a href="" class="text-orange-300 underline">Descubra</a> como podemos tornar seu evento inesquecível.
-        </p>
-      </div>
-
-      <div
-        class="absolute bottom-0 z-0 left-0 w-full h-full bg-linear-to-r from-black/80 to-black/30"
-      >
-      </div>
-    </div>
-  </div>
+  <MainBanner />
+  <SecondBanner />
+  <ThirdBanner />
 </Layout>
