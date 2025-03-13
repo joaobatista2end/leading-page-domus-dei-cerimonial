@@ -1,9 +1,9 @@
 <div class="fixed top-0 left-0 right-0 z-50 py-3 bg-linear-to-b backdrop-blur-md from-black/40 to-black/30">
-    <div class="max-w-screen-lg mx-auto">
+    <div class="max-w-screen-lg mx-auto px-4">
         <div class="flex items-center justify-between">
             <img src="images/logo-60-vertical.svg" alt="Domus Dei" class="h-[48px]" />
 
-            <div class="flex items-end gap-4">
+            <div class="md:flex items-end gap-4 hidden">
                 <nav class="flex font-kanit text-sm font-thin items-center gap-8 text-white">
                     <a href="#inicio" class="hover:text-orange-300">Início</a>
                     <a href="#sobre" class="hover:text-orange-300">Sobre</a>
@@ -11,6 +11,62 @@
                     <a href="#contato" class="hover:text-orange-300">Contato</a>
                 </nav>
             </div>
+
+            <!-- Botão Hamburguer para Mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-white flex flex-col space-y-1.5">
+                <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+            </button>
         </div>
     </div>
 </div>
+
+<!-- Menu Mobile -->
+<div id="mobile-menu" class="fixed inset-0 bg-black/95 z-40 flex flex-col justify-center items-center transform translate-x-full transition-transform duration-300 ease-in-out">
+    <nav class="flex flex-col font-kanit text-xl font-thin items-center gap-8 text-white">
+        <a href="#inicio" class="hover:text-orange-300 py-2">Início</a>
+        <a href="#sobre" class="hover:text-orange-300 py-2">Sobre</a>
+        <a href="#pacotes" class="hover:text-orange-300 py-2">Pacotes</a>
+        <a href="#contato" class="hover:text-orange-300 py-2">Contato</a>
+    </nav>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        
+        let isMenuOpen = false;
+        
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            // Anima o botão hamburguer para X
+            const spans = mobileMenuButton.querySelectorAll('span');
+            if (isMenuOpen) {
+                spans[0].classList.add('rotate-45', 'translate-y-2');
+                spans[1].classList.add('opacity-0');
+                spans[2].classList.add('-rotate-45', '-translate-y-2');
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.classList.add('overflow-hidden'); // Impede rolagem
+            } else {
+                spans[0].classList.remove('rotate-45', 'translate-y-2');
+                spans[1].classList.remove('opacity-0');
+                spans[2].classList.remove('-rotate-45', '-translate-y-2');
+                mobileMenu.classList.add('translate-x-full');
+                document.body.classList.remove('overflow-hidden'); // Permite rolagem
+            }
+        }
+        
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        
+        // Fechar menu quando um link é clicado
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) toggleMenu();
+            });
+        });
+    });
+</script>
