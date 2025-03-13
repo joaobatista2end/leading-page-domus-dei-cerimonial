@@ -11,29 +11,32 @@ const iconMap = {
 ---
 
 <footer class="bg-black/90 text-white/60 py-8 text-xs" id="contato">
-  <div class="flex flex-col max-w-xs mx-auto">
+  <div class="flex flex-col max-w-xs mx-auto" data-aos="fade-up">
     <img
       src="images/logo-90x90.svg"
       alt="Domus Dei"
       class="h-16 mb-4 object-contain"
+      data-aos="zoom-in"
     />
-    <p class="font-thin hyphens-auto mb-2" lang="pt-br">
+    <p class="font-thin hyphens-auto mb-2" lang="pt-br" data-aos="fade-up" data-aos-delay="200">
       Transformamos sonhos em realidade com dedicação, propósito e muito amor.
       Cuidamos dos mínimos detalhes para que você viva o momento com leveza.
     </p>
-    <p class="font-thin mb-4">
+    <p class="font-thin mb-4" data-aos="fade-up" data-aos-delay="300">
       <strong>Endereço:</strong> Rua João XXIII, 123 - Jardim das Indústrias - São Paulo/SP
     </p>
 
-    <div class="flex gap-4 mx-auto">
+    <div class="flex gap-4 mx-auto" data-aos="fade-up" data-aos-delay="400">
       {
-        social.map((item) => (
+        social.map((item, index) => (
           <a
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
             class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-orange-300/20 transition-colors"
             aria-label={item.name}
+            data-aos="zoom-in" 
+            data-aos-delay={450 + index * 50}
           >
             {item.name === "Instagram" && <Instagram size={20} />}
             {item.name === "Facebook" && <Facebook size={20} />}
@@ -49,7 +52,7 @@ const iconMap = {
     <div class="border-t border-zinc-800 my-8"></div>
 
     <!-- Copyright -->
-    <div class="text-center text-xs text-zinc-400 font-thin">
+    <div class="text-center text-xs text-zinc-400 font-thin" data-aos="fade-up" data-aos-delay="500">
       <p>
         © {new Date().getFullYear()} <strong>Domus Dei Cerimoniais</strong>. Todos os direitos reservados.
       </p>
@@ -58,6 +61,8 @@ const iconMap = {
           src="images/decoration_1.png"
           alt="Decoração"
           class="h-4 inline-block opacity-30"
+          data-aos="zoom-in" 
+          data-aos-delay="600"
         />
       </p>
     </div>
