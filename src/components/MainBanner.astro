@@ -2,18 +2,20 @@
 import BannerBase from "./BannerBase.astro";
 ---
 
-<BannerBase
-  height="100vh"
-  title="Seu sonho <br /> merece mais <br /> do que improviso. <br /> Ele merece direção!"
-  description="Na Domus Dei, cada evento é planejado com dedicação, propósito e muito amor. Cuidamos dos mínimos detalhes para que você viva o momento com leveza, sem preocupações."
-  background="images/bg_1.jpg"
-  cta={{
-    text: "Agende uma consultoria",
-    link: ""
-  }}
->
-  <p slot="cta" class="max-w-[320px] font-poppins mt-4 text-sm font-thin">
-    <a href="" class="text-orange-300 underline font-light">Agende uma consultoria</a> e dê o primeiro passo para um dia
-    inesquecível.
-  </p>
-</BannerBase> 
+<section id="inicio" class="...">
+  <BannerBase
+    height="100vh"
+    title="Seu sonho <br /> merece mais <br /> do que improviso. <br /> Ele merece direção!"
+    description="Na Domus Dei, cada evento é planejado com dedicação, propósito e muito amor. Cuidamos dos mínimos detalhes para que você viva o momento com leveza, sem preocupações."
+    background="images/bg_1.jpg"
+    cta={{
+      text: "Agende uma consultoria",
+      link: ""
+    }}
+  >
+    <p slot="cta" class="max-w-[320px] font-poppins mt-4 text-sm font-thin">
+      <a href="" class="text-orange-300 underline font-light">Agende uma consultoria</a> e dê o primeiro passo para um dia
+      inesquecível.
+    </p>
+  </BannerBase>
+</section> 
