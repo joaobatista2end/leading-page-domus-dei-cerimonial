@@ -1,0 +1,65 @@
+---
+---
+<div class="fixed bottom-4 right-4 bg-black/30 backdrop-blur-sm p-2 rounded-lg shadow-lg flex items-center gap-2 z-50">
+  <button id="audioControl" class="hover:scale-110 transition-transform text-white">
+    <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+      <circle cx="12" cy="12" r="10"></circle>
+      <polygon points="10 8 16 12 10 16 10 8"></polygon>
+    </svg>
+    <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 hidden">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="10" y1="15" x2="10" y2="9"></line>
+      <line x1="14" y1="15" x2="14" y2="9"></line>
+    </svg>
+  </button>
+  <audio id="bgMusic" preload="auto" autoplay>
+    <source src="/music/background-music.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+  const audio = document.getElementById('bgMusic') as HTMLAudioElement;
+  const playIcon = document.getElementById('playIcon');
+  const pauseIcon = document.getElementById('pauseIcon');
+  const button = document.getElementById('audioControl');
+
+  if (audio && button && playIcon && pauseIcon) {
+    audio.volume = 0.05;
+
+    // Tenta iniciar a música automaticamente de várias formas
+    const tryPlayAudio = () => {
+      audio.muted = false; // Remove o mute
+      audio.play().then(() => {
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+      }).catch(console.error);
+    };
+
+    // Tenta no carregamento da página
+    window.addEventListener('load', tryPlayAudio);
+    
+    // Tenta quando o documento estiver pronto
+    document.addEventListener('DOMContentLoaded', tryPlayAudio);
+
+    // Tenta no primeiro clique
+    document.addEventListener('click', () => {
+      tryPlayAudio();
+      // Remove o evento após o primeiro uso
+      document.removeEventListener('click', tryPlayAudio);
+    }, { once: true });
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      
+      if (audio.paused) {
+        audio.play();
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+      } else {
+        audio.pause();
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+      }
+    });
+  }
+</script> 

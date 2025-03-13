@@ -1,7 +1,8 @@
 [
     {
-      "name": "Pacote Rubi",
+      "name": "Pacote Essencial",
       "price": 3500,
+      "icon": "images/stones/amber.png",
       "description": "Ideal para casais que já organizaram boa parte do evento, mas precisam de uma equipe especializada no grande dia.",
       "services": [
         "Reunião de alinhamento pré-evento",
@@ -14,8 +15,9 @@
       ]
     },
     {
-      "name": "Pacote Esmeralda",
+      "name": "Pacote Clássico",
       "price": 6500,
+      "icon": "images/stones/gemstone.png",
       "description": "Perfeito para quem quer apoio antes e durante o evento, com acompanhamento de fornecedores e organização parcial.",
       "services": [
         "Tudo do Pacote Essencial",
@@ -29,8 +31,9 @@
       ]
     },
     {
-      "name": "Pacote Diamante",
+      "name": "Pacote Premium",
       "price": 10500,
+      "icon": "images/stones/diamond.png",
       "description": "Para quem deseja tranquilidade total. A Domus Dei cuida de tudo, do planejamento à execução.",
       "services": [
         "Tudo do Pacote Clássico",

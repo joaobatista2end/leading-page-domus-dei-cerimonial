@@ -7,14 +7,15 @@ interface Props {
     link: string;
   };
   background: string;
+  height: string;
 }
 
-const { title, description, cta, background } = Astro.props;
+const { title, description, cta, background, height } = Astro.props;
 ---
 
 <div
-  class="relative px-16 h-screen aspect-video bg-cover bg-center flex items-center"
-  style={`background-image: url(${background})`}
+  class="relative px-16 aspect-video bg-cover bg-center flex items-center w-full"
+  style={`background-image: url(${background}); height: ${height}`}
 >
   <div class="relative z-10 text-white">
     <h1 class="font-poppins leading-7 max-w-[350px] hyphens-auto text-3xl font-light text-orange-300" set:html={title} />
