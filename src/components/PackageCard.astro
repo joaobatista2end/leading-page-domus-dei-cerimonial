@@ -1,38 +1,89 @@
 ---
 interface Props {
   name: string;
-  price: number;
   description: string;
   services: string[];
+  image: string;
 }
 
-const { name, price, description, services } = Astro.props;
+const { name, description, services, image } = Astro.props;
 
-const formattedPrice = new Intl.NumberFormat('pt-BR', {
-  style: 'currency',
-  currency: 'BRL'
-}).format(price);
+// Mapeamento de pacotes para pedras preciosas com ajustes nos tamanhos
+const gemMapping = {
+  "Pacote Rubi": {
+    gemName: "Rubi",
+    gradient: "bg-gradient-to-br from-red-600 to-red-900",
+    shape:
+      '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12,2L2,12l10,10l10-10L12,2z"></path></svg>',
+  },
+  "Pacote Esmeralda": {
+    gemName: "Esmeralda",
+    gradient: "bg-gradient-to-br from-emerald-400 to-emerald-700",
+    shape:
+      '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12,2L3,9l2,13h14l2-13L12,2z"></path></svg>',
+  },
+  "Pacote Diamante": {
+    gemName: "Safira",
+    gradient: "bg-gradient-to-br from-blue-400 to-blue-800",
+    shape:
+      '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7,2l10,0l5,5l-10,15l-10-15l5-5z"></path></svg>',
+  },
+};
+
+// Obter dados da pedra preciosa para este pacote
+const getGemData = (packageName: string) => {
+  return (
+    gemMapping[packageName] || {
+      gemName: "Pedra",
+      gradient: "bg-gradient-to-br from-gray-400 to-gray-700",
+      shape:
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect></svg>',
+    }
+  );
+};
+
+const currentGem = getGemData(name);
+
+const flowerIcon =
+  '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-orange-300/70 mt-1"><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m3 4.5a4.5 4.5 0 1 0 4.5-4.5M12 16.5V15m4.5-3a4.5 4.5 0 1 1-4.5-4.5M16.5 12H15"/><circle cx="12" cy="12" r="3"/></svg>';
 ---
 
-<div class="bg-zinc-900 p-8 rounded-lg border border-zinc-800 hover:border-orange-300/30 transition-colors">
-  <h3 class="font-kanit text-2xl text-orange-300">{name}</h3>
-  <p class="font-poppins text-xl mt-2 text-white">{formattedPrice}</p>
-  
-  <p class="font-poppins text-sm text-zinc-400 mt-4">{description}</p>
-  
-  <ul class="mt-6 space-y-2">
-    {services.map(service => (
-      <li class="flex items-start gap-2 text-sm text-zinc-300">
-        <span class="text-orange-300 mt-1">•</span>
-        {service}
-      </li>
-    ))}
-  </ul>
+<div class="h-[400px]">
+  <div class="h-full text-white flex flex-col">
+    <div
+      class="h-[154px] bg-cover bg-center"
+      style={`background-image: url('${image}')`}
+    >
+      <div class="bg-black/70 p-4 h-full relative">
+        <!-- Badge com forma e gradiente da pedra preciosa -->
 
-  <a 
-    href="" 
-    class="mt-8 block w-full text-center py-3 px-4 bg-orange-300/10 hover:bg-orange-300/20 text-orange-300 rounded-md transition-colors"
-  >
-    Saiba mais
-  </a>
-</div> 
+        <div class="font-poppins items-center gap-x-4 inline-flex mb-2">
+          <span
+            class={`${currentGem.gradient} w-8 h-8 flex items-center justify-center text-white rounded-md overflow-hidden shadow-lg`}
+          >
+            <span class="drop-shadow-md" set:html={currentGem.shape} />
+          </span>
+
+          <h3 class="font-light text-xl">{name}</h3>
+        </div>
+        <p class="font-kanit font-thin text-sm hyphens-auto" lang="pt-br">
+          {description}
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-zinc-900 text-white p-4 flex-1">
+      <h3 class="mb-4">Lista de serviços</h3>
+      <ul class="text-xs space-y-1 font-thin">
+        {
+          services.slice(0, 6).map((service) => (
+            <li class="flex items-start gap-2">
+              <span set:html={flowerIcon} />
+              <span>{service}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
