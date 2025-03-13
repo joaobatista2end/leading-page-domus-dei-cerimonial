@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/domusdei.com.br",
+        "icon": "images/social/instagram.png"
+    },
+    {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/domusdei.com.br",
+        "icon": "images/social/facebook.png"
+    },
+    {
+        "name": "WhatsApp",
+        "url": "https://wa.me/5511999999999",
+        "icon": "images/social/whatsapp.png"
+    },
+    {
+        "name": "E-mail",
+        "url": "mailto:contato@domusdei.com.br",
+        "icon": "images/social/email.png"
+    }
+]
